@@ -3,7 +3,7 @@
 pragma solidity ^0.8.0;
 
 contract DemoAddress {
-    address myAddress = 0x5B38Da6a701c568545dCfcB03FcB875f56beddC4;
+    address myAddress = "address of the msg.sender";
 
     function receiveFunds () public payable {
     }
