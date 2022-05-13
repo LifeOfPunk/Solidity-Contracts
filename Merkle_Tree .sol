@@ -1,3 +1,4 @@
+// For own purposes
 // SPDX-License-Identifier: GPL-3.0
 
 pragma  solidity ^0.8.0;
@@ -15,15 +16,15 @@ contract Tree {                                                  // Привет
         "TX2: John -> Sherlock",
         "TX3: John -> Mary",
         "TX4: Mary -> Sherlock"
-        ]; //2. массив из строк будет представлять некоторые транзацкции или данные
+        ];                                                       //2. массив из строк будет представлять некоторые транзацкции или данные
 
 
         constructor () {
-            for (uint i = 0; i < transactions.length; i++) {     //  3. for организовывет циклы. для это нужно создать обход массива где итерация будет переходить на каждый следующий элемент
+            for (uint i = 0; i < transactions.length; i++) {    //  3. for организовывет циклы. для это нужно создать обход массива где итерация будет переходить на каждый следующий элемент
               hashes.push(makehash(transactions[i]));           // 4. makehash хеширует каждый элемент, а .push отправляет его в массим данных hashes
             }
            
-            uint count = transactions.length;                    // 5. теперь необходимо прозешириваоть следующие листья древа, поэтому перед этим их нужно заново посчитать
+            uint count = transactions.length;                    // 5. теперь необходимо прозехешировать следующие листья древа, поэтому перед этим их нужно заново посчитать
             uint offset = 0;                                    // 6. ввожу переменную смещения
            
             while (count > 0) {
@@ -60,7 +61,7 @@ contract Tree {                                                  // Привет
         return abi.encodePacked(input);
        }
 
-    function makehash (string memory input) public pure returns (bytes32) { // 1. Данная функция с помощью команды keccak256 хеширует данные, ифномарцию о которых ей дает функиця encode
+    function makehash (string memory input) public pure returns (bytes32) {          // 1. Данная функция с помощью команды keccak256 хеширует данные, ифномарцию о которых ей дает функиця encode
         return keccak256 (
             encode(input)
         );  // примечание: она возразает хеш с заранее известной длинной, так как 1 байт это 8 бит, значит 8*32=256. Но кессаку нужно передавать правильно закодированное значение
